@@ -1,0 +1,67 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+.container-seo {
+    background-color: rgb(238,232,170);
+    display: flex;
+    width: 900px;
+    margin: auto;
+    border-radius: 15px;
+    padding: 15px 5px 15px 5px;
+    margin-bottom: 25px;
+}
+
+.container-ads {
+    margin-top: 25px;
+    background-color: rgb(238,232,170);
+    display: flex;
+    width: 900px;
+    margin: auto;
+    border-radius: 15px;
+    padding: 15px 5px 15px 5px;
+    margin-bottom: 25px;
+}
+
+.container-web {
+    margin-top: 25px;
+    background-color: rgb(238,232,170);
+    display: flex;
+    width: 900px;
+    margin: auto;
+    border-radius: 15px;
+    padding: 15px 5px 15px 5px;
+    margin-bottom: 25px;
+
+}
+.col-descripcion {
+    background-color: transparent;
+}
+
+.col-euros {
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+}
+
+.p-cifra {
+    margin: auto;
+    font-size: 40px;
+    margin-right: 2px;
+}
+
+.p-euro {
+    margin: auto;
+    font-size: 15px;
+    margin-left: 2px;
+    margin-bottom: 12px;
+}
+
+.col-check {
+    margin: auto;
+    margin-top: 40px;
+    font-weight: 85px;
+}
+
+.check-input {
+    margin-left: 150px;
+}
