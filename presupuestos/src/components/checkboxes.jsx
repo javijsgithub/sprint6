@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import WebOptions from './webOptions';
 import '../styles/checkboxes.css';
 
 
@@ -6,24 +7,31 @@ function Checkboxes({ totalPriceChange }) {
     const [seoChecked, setSeoChecked] = useState(false);
     const [adsChecked, setAdsChecked] = useState(false);
     const [webChecked, setWebChecked] = useState(false);
+    const [webCost, setWebCost] = useState(0);
   
     const seoChange = () => {
       setSeoChecked(!seoChecked);
-      totalPriceChange(!seoChecked, adsChecked, webChecked);
+      totalPriceChange(!seoChecked, adsChecked, webChecked, webCost);
     };
   
     const adsChange = () => {
       setAdsChecked(!adsChecked);
-      totalPriceChange(seoChecked, !adsChecked, webChecked);
+      totalPriceChange(seoChecked, !adsChecked, webChecked, webCost);
     };
   
     const webChange = () => {
       setWebChecked(!webChecked);
-      totalPriceChange(seoChecked, adsChecked, !webChecked);
+      totalPriceChange(seoChecked, adsChecked, !webChecked, webCost);
     };
+
+    const updateWebCost = (cost) => {
+      setWebCost(cost);
+      totalPriceChange(seoChecked, adsChecked, webChecked, cost);
+  };
   
     return (
       <div className='container-checkboxes'>
+
         <div className='row container-seo shadow p-3'>
           <div className="col-4 col-descripcion">
             <h2>Seo</h2> 
@@ -42,8 +50,6 @@ function Checkboxes({ totalPriceChange }) {
             /> Agregar
           </div>
         </div>
-        
-  
   
         <div className='row container-ads shadow p-3'>
           <div className="col-4 col-descripcion">
@@ -64,7 +70,6 @@ function Checkboxes({ totalPriceChange }) {
           </div>
         </div>
   
-  
         <div className='row container-web shadow p-3'>
           <div className="col-4 col-descripcion">
             <h2>Web</h2> 
@@ -82,10 +87,18 @@ function Checkboxes({ totalPriceChange }) {
               onChange={webChange}
             /> Agregar       
           </div>
+          
+          {webChecked && (<WebOptions 
+          updateWebCost={updateWebCost}
+          />
+        )}
         </div>
+
       </div>
-  
     );
   };
   
   export default Checkboxes;
+
+
+ 

@@ -1,0 +1,53 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+h5 {
+    margin-left: 535px;
+    margin-bottom: 15px;
+}
+
+.container-option-pages {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+.container-option-languages {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 3px;
+    margin-bottom: 20px;
+}
+
+.button-plus {
+    border-radius: 50%;
+    margin-left: 5px; 
+}
+
+.button-minus {
+    width: 27px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 18px;   
+}
+
+.input-pages {
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-languages {
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    margin-left: 535px;
+}
+
+.container-total-options h5 {
+    margin-left: 535px;
+}
+
+

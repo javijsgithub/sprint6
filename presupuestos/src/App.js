@@ -6,15 +6,18 @@ import './App.css';
 function App() {
 
   const [totalPrice, setTotalPrice] = useState(0);
+  const [webOptionsCost, setWebOptionsCost] = useState(0);
   
-    const recalculateTotalPrice = (seoChecked, adsChecked, webChecked) => {
+    const recalculateTotalPrice = (seoChecked, adsChecked, webChecked, webCost) => {
       let total = 0;
       if (seoChecked) total += 300;
       if (adsChecked) total += 400;
       if (webChecked) total += 500;
+      setWebOptionsCost(webCost);
       setTotalPrice(total);
     };
 
+    
   return (
     <div className="container mt-5">
       <nav class="navbar bg-body-tertiary">
@@ -34,7 +37,7 @@ function App() {
       />
       
       <div className='container-h3'>
-        <h3>Precio presupuestado: {totalPrice} €</h3>
+        <h3>Precio presupuestado: {totalPrice + webOptionsCost} €</h3>
       </div>
     </div>
   );
