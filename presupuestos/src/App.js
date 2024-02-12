@@ -1,44 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Checkboxes from './components/checkboxes';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import WelcomeScreen from './components/welcomeScreen';
 import './App.css';
 
 
 function App() {
-
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [webOptionsCost, setWebOptionsCost] = useState(0);
-  
-    const recalculateTotalPrice = (seoChecked, adsChecked, webChecked, webCost) => {
-      let total = 0;
-      if (seoChecked) total += 300;
-      if (adsChecked) total += 400;
-      if (webChecked) total += 500;
-      setWebOptionsCost(webCost);
-      setTotalPrice(total);
-    };
-
-    
   return (
     <div className="container mt-5">
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="https://itacademy.barcelonactiva.cat/login/index.php">
+
+    <Router>
+      
+      <nav class="navbar">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="https://itacademy.barcelonactiva.cat/login/index.php">
            <img src= {require(`./images/imagen-titulo.jpg`)} alt="Logo" width="30" height="24" className="d-inline-block align-text-top" id='logo' /> <b>Frontender.itacademy</b>
           </a>
         </div>
       </nav>
-      
-      <div className='container-h1 shadow-lg'>
-        <h1><b>Consigue la mejor calidad</b></h1>
-      </div>
 
-      <Checkboxes
-       totalPriceChange = {recalculateTotalPrice} 
-      />
+      <Routes>
+        <Route path="/" element={
+        <WelcomeScreen />} 
+        />
+
+        <Route path="/calculator" element={
+        <Checkboxes />} 
+        />
+      </Routes>
       
-      <div className='container-h3'>
-        <h3>Precio presupuestado: {totalPrice + webOptionsCost} €</h3>
-      </div>
+    </Router>
+      
     </div>
   );
 };

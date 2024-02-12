@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import WebOptions from './webOptions';
 import '../styles/checkboxes.css';
 
 
-function Checkboxes({ totalPriceChange }) {
+function Checkboxes() {
     const [seoChecked, setSeoChecked] = useState(false);
     const [adsChecked, setAdsChecked] = useState(false);
     const [webChecked, setWebChecked] = useState(false);
@@ -11,26 +12,48 @@ function Checkboxes({ totalPriceChange }) {
   
     const seoChange = () => {
       setSeoChecked(!seoChecked);
-      totalPriceChange(!seoChecked, adsChecked, webChecked, webCost);
+      recalculateTotalPrice(!seoChecked, adsChecked, webChecked, webCost);
     };
   
     const adsChange = () => {
       setAdsChecked(!adsChecked);
-      totalPriceChange(seoChecked, !adsChecked, webChecked, webCost);
+      recalculateTotalPrice(seoChecked, !adsChecked, webChecked, webCost);
     };
   
     const webChange = () => {
       setWebChecked(!webChecked);
-      totalPriceChange(seoChecked, adsChecked, !webChecked, webCost);
+      recalculateTotalPrice(seoChecked, adsChecked, !webChecked, webCost);
     };
 
     const updateWebCost = (cost) => {
       setWebCost(cost);
-      totalPriceChange(seoChecked, adsChecked, webChecked, cost);
-  };
-  
+      recalculateTotalPrice(seoChecked, adsChecked, webChecked, cost);
+    };
+
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [webOptionsCost, setWebOptionsCost] = useState(0);
+
+    const recalculateTotalPrice = (seoChecked, adsChecked, webChecked, webCost) => {
+      let total = 0;
+      if (seoChecked) total += 300;
+      if (adsChecked) total += 400;
+      if (webChecked) total += 500;
+      setWebOptionsCost(webCost);
+
+      if (!webChecked) {
+        total -= webCost;
+    }
+      setTotalPrice(total);      
+    };
+    
     return (
       <div className='container-checkboxes'>
+
+        <Link to="/" className="btn">Ir a la página de bienvenida</Link>
+
+         <div className='container-h1 shadow-lg'>
+           <h1><b>Consigue la mejor calidad</b></h1>
+         </div>
 
         <div className='row container-seo shadow p-3'>
           <div className="col-4 col-descripcion">
@@ -89,16 +112,20 @@ function Checkboxes({ totalPriceChange }) {
           </div>
           
           {webChecked && (<WebOptions 
-          updateWebCost={updateWebCost}
+          updateWebCost={updateWebCost} 
           />
-        )}
+          )}
+        </div>
+
+        <div className='container-h3'>
+            <h3>Precio presupuestado: {totalPrice + webOptionsCost} €</h3>
         </div>
 
       </div>
     );
-  };
+};
   
-  export default Checkboxes;
+export default Checkboxes;
 
 
  

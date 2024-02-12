@@ -5,28 +5,12 @@
     background-color: white;
     padding: 0px 0px 25px 0px;
 }
-
-#logo {
-    margin-bottom: 25px;
+.container-fluid {
+    margin: initial;
 }
 
-.container-h1 {
-    padding: 25px;
-    background-image: url(./images/imagen-titulo.jpg);
-    margin-bottom: 60px;
-    text-align: center;
-    height: 175px;
-    border-radius: 15px;
-}
-
-h1 {
-    margin-top: 30px;
-}
-
-.container-h3 {
-    background-color: transparent;
-    margin-right: 10px;
-    margin-top: 20px;
+.navbar {
+    width: 300px;
 }
 
 h3 {

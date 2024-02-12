@@ -2,7 +2,7 @@ import React, { useState, } from 'react';
 import '../styles/webOptions.css';
 
 function WebOptions({ updateWebCost }) {
-
+    
     const [numPages, setNumPages] = useState(0);
     const [numLanguages, setNumLanguages] = useState(0);
 

@@ -1,0 +1,27 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.container-welcome {
+    background-color:  rgb(238,232,170);
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 55px;
+}
+
+.proposito {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.container-welcome .btn {
+    /* margin-bottom: 25px;*/
+     margin-top: 5px;
+     background-color:  rgb(104, 103, 103);
+     color: white;
+     border: 2px solid black;
+ }
+
+ .container-welcome .btn:hover {
+    background-color: rgb(238,232,170);
+    border: 2px solid black;
+    color: black;
+}
