@@ -1,0 +1,74 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+.container-budgets {
+    background-color: rgb(238,232,170);
+    width: 900px;
+    margin: auto;
+    margin-top: 35px;
+    border-radius: 15px;
+    padding: 25px 45px 45px 25px;
+}
+
+.container-inputs-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.btn-solicitar {
+    background-color:  rgb(104, 103, 103);
+    color: white;
+    border: 2px solid black
+}
+
+.btn-solicitar:hover {
+    background-color: rgb(238,232,170);
+    border: 2px solid black;
+    color: black;
+}
+
+.container-budgets-list h3 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 125px;
+}
+
+.container-budgets h2 {
+    margin-bottom: 25px;
+}
+
+hr {
+    margin-top: 65px;
+    width: 900px;
+    margin-left: 115px;
+}
+
+.container-list {
+    background-color:  rgb(238,232,170);
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    margin: auto;
+    margin-top: 35px;
+    border-radius: 15px;
+    padding: 25px 45px 45px 25px;
+}
+
+.col-info-cliente {
+    margin-top: 25px;
+}
+
+.col-servicios-contratados {
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.col-precio {
+    margin-top: 25px;
+    margin-left: 100px;
+    justify-content: center;
+    align-items: center;
+
+}
+

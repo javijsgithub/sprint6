@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import WebOptions from './webOptions';
 import '../styles/checkboxes.css';
+import AskBudget from './askBudget';
 
 
 function Checkboxes() {
     const [seoChecked, setSeoChecked] = useState(false);
     const [adsChecked, setAdsChecked] = useState(false);
     const [webChecked, setWebChecked] = useState(false);
-    const [webCost, setWebCost] = useState(0);
-  
+    const [webCost, setWebCost] = useState(0); 
+   
     const seoChange = () => {
       setSeoChecked(!seoChecked);
       recalculateTotalPrice(!seoChecked, adsChecked, webChecked, webCost);
@@ -38,14 +39,21 @@ function Checkboxes() {
       if (seoChecked) total += 300;
       if (adsChecked) total += 400;
       if (webChecked) total += 500;
+    
       setWebOptionsCost(webCost);
 
       if (!webChecked) {
         total -= webCost;
-    }
+      }
+
       setTotalPrice(total);      
     };
     
+    const resetPrice = () => {
+      setTotalPrice(0);
+      setWebOptionsCost(0);
+    };
+       
     return (
       <div className='container-checkboxes'>
 
@@ -111,15 +119,30 @@ function Checkboxes() {
             /> Agregar       
           </div>
           
-          {webChecked && (<WebOptions 
-          updateWebCost={updateWebCost} 
-          />
+          {webChecked && (
+            <WebOptions 
+              updateWebCost = {updateWebCost} 
+            />
           )}
         </div>
 
-        <div className='container-h3'>
+        <div className='container-precio-presupuestado'>
             <h3>Precio presupuestado: {totalPrice + webOptionsCost} €</h3>
         </div>
+
+          <AskBudget
+            totalPrice = {totalPrice}
+            webOptionsCost = {webOptionsCost}
+            seoChecked = {seoChecked}
+            adsChecked = {adsChecked}
+            webChecked = {webChecked}
+            setSeoChecked={setSeoChecked}
+            setAdsChecked={setAdsChecked}
+            setWebChecked={setWebChecked}
+            numPages={webCost / 60}
+            numLanguages={webCost / 60}
+            resetPrice={resetPrice}
+          />
 
       </div>
     );
