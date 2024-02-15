@@ -50,4 +50,24 @@ label {
     margin-left: 535px;
 }
 
+.modal-title {
+    margin: auto;
+    margin-left: 150px;
+    text-align: center;
+}
 
+.modal-body {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    margin: auto;
+    margin-top: 225px;
+}
+
+.button-info {
+    margin-left: 10px;
+    border-radius: 5px;
+}
