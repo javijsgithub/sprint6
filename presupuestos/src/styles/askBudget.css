@@ -50,7 +50,7 @@ hr {
     justify-content: space-between;
     width: 900px;
     margin: auto;
-    margin-top: 35px;
+    margin-top: 15px;
     border-radius: 15px;
     padding: 25px 45px 45px 25px;
 }
@@ -69,6 +69,46 @@ hr {
     margin-left: 100px;
     justify-content: center;
     align-items: center;
-
 }
+
+.btn-alphabetic {
+    margin-left: 510px;
+    background-color:  rgb(104, 103, 103);
+    color: white;
+    border: 2px solid black
+}
+
+.btn-alphabetic:hover {
+    background-color: rgb(238,232,170);
+    border: 2px solid black;
+    color: black;
+}
+
+.btn-price {
+    margin-left: 5px;
+    background-color:  rgb(104, 103, 103);
+    color: white;
+    border: 2px solid black
+}
+
+.btn-price:hover {
+    background-color: rgb(238,232,170);
+    border: 2px solid black;
+    color: black;
+}
+
+.btn-rein {
+    margin-left: 5px;
+    background-color:  rgb(104, 103, 103);
+    color: white;
+    border: 2px solid black
+}
+
+.btn-rein:hover {
+    background-color: rgb(238,232,170);
+    border: 2px solid black;
+    color: black;
+}
+
+
 
