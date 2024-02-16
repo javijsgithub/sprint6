@@ -72,7 +72,7 @@ hr {
 }
 
 .btn-alphabetic {
-    margin-left: 510px;
+    margin-left: 5px;
     background-color:  rgb(104, 103, 103);
     color: white;
     border: 2px solid black
@@ -110,5 +110,7 @@ hr {
     color: black;
 }
 
-
+.input-buscar-nombre {
+    margin-left: 320px;
+}
 

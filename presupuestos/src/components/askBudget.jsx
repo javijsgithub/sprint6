@@ -8,6 +8,7 @@ function AskBudget({ totalPrice, resetPrice, webOptionsCost, seoChecked, adsChec
     const [emailCliente, setEmailCliente] = useState('');
     const [sortedBy, setSortedBy] = useState(null);
     const [originalPresupuestos, setOriginalPresupuestos] = useState([]);
+    const [buscarPorNombre, setBuscarPorNombre] = useState('');
 
     const nombreChange = (value) => {
         setNombreCliente(value);
@@ -55,7 +56,7 @@ function AskBudget({ totalPrice, resetPrice, webOptionsCost, seoChecked, adsChec
             return a.nombreCliente.localeCompare(b.nombreCliente);
         });
         setPresupuestos(sortedPresupuestos);
-        setSortedBy('Orden alfabetico');
+        setSortedBy(sortedBy);
       };
 
       const ordenarPorPrecio = () => {
@@ -63,13 +64,20 @@ function AskBudget({ totalPrice, resetPrice, webOptionsCost, seoChecked, adsChec
             return b.precioTotal - a.precioTotal;
         });
         setPresupuestos(sortedPresupuestos);
-        setSortedBy('Orden por precio mas elevado');
+        setSortedBy(sortedBy);
       };
 
       const reinicializarOrden = () => {
         setPresupuestos([...originalPresupuestos]);
-        setSortedBy(sortedBy);
       };
+
+      const nombreBuscar = (event) => {
+        setBuscarPorNombre(event.target.value);
+      };
+
+    const filteredPresupuestos = presupuestos.filter((presupuesto) =>
+        presupuesto.nombreCliente.toLowerCase().includes(buscarPorNombre.toLowerCase())
+    );
 
     return (
         <div className='container-budgets-list'>
@@ -110,13 +118,20 @@ function AskBudget({ totalPrice, resetPrice, webOptionsCost, seoChecked, adsChec
 
             <h3>Presupuestos en curso :</h3>
            
-            <div className='btn-search'>
+            <div className='buscar'>
+                <input
+                   type="text"
+                   className='input-buscar-nombre'
+                   placeholder="Buscar por nombre"
+                   value={buscarPorNombre}
+                   onChange={nombreBuscar}
+                />
                 <button className='btn-alphabetic' onClick={ordenarAlfabeticamente}>Ordenar Alfabéticamente</button>
                 <button className='btn-price' onClick={ordenarPorPrecio}>Ordenar por Precio</button>
                 <button className='btn-rein' onClick={reinicializarOrden}>Reinicializar Orden</button>
             </div>
-
-                     {presupuestos.map((presupuesto, index) => (
+            
+                     {filteredPresupuestos.map((presupuesto, index) => (
                         <div key={index} className='container-list shadow p-3'>
 
                           <div className='col-4 col-info-cliente'>
